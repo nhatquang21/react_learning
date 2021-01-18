@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import pokemon from './pokemondata';
+import ListPoke from './components/ListPoke';
+import PokeType from './components/PokeType';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      pokemon: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      fire: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      water: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      grass: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      // fire:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      // water:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+      // grass:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    }
+  }
+  render() {
+    return (
+      <div>
+        <ListPoke poke={pokemon} display={this.state.pokemon} />
+        <PokeType poke={pokemon} fire={this.state.fire} water={this.state.water} grass={this.state.grass}/>
+      </div>
+    );
+  }
 }
-
-export default App;
